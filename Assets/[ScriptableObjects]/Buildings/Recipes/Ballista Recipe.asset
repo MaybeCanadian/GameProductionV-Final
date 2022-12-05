@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67cea0d07231459479fe8c55ac3a1c84, type: 3}
+  m_Name: Ballista Recipe
+  m_EditorClassIdentifier: 
+  recipeName: Ballista
+  building: {fileID: 11400000, guid: 7f5f40d416c125e4e9f340acbfedde63, type: 2}
+  recipeImage: {fileID: 1410382217, guid: 4909bf0153332794c97d4538b96c7800, type: 3}
+  requiredMaterials:
+  - item: {fileID: 11400000, guid: 1c73197cbd924464e98eb4a1624d6792, type: 2}
+    amount: 10
+  - item: {fileID: 11400000, guid: 3ca5dfe6a93745b48bac3748395a883c, type: 2}
+    amount: 20

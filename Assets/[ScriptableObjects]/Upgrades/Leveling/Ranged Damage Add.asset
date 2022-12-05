@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d34e29b306a854a831c0f045370684, type: 3}
+  m_Name: Ranged Damage Add
+  m_EditorClassIdentifier: 
+  groupName: Ranged Damage Add
+  upgradeType: 7
+  upgradeMethod: 0
+  UIImage: {fileID: 2120145714, guid: 097403082245d4e42bc637b5c8241faf, type: 3}
+  Common:
+    upgradeDescription: Deal 5 more ranged damage.
+    amount: 5
+  Uncommon:
+    upgradeDescription: Deal 10 more ranged damage.
+    amount: 10
+  UncommonChance: 30
+  Rare:
+    upgradeDescription: Deal 15 more ranged damage.
+    amount: 15
+  RareChance: 15

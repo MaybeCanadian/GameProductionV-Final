@@ -290,7 +290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4283167703503864692}
   m_Layer: 0
-  m_Name: TileGroup 64 _ 64
+  m_Name: TileGroup 8_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

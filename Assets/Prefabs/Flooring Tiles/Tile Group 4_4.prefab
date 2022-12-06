@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4235709173784761078}
   m_Layer: 0
-  m_Name: Tile Group 16 _ 16
+  m_Name: Tile Group 4_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

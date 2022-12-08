@@ -9,7 +9,7 @@ public class BuildingScript : MonoBehaviour
     public float currentHealth;
     public HealthBarScript healthBar;
     public virtual void Activate() { }
-    private void Start()
+    protected void Start()
     {
         currentHealth = maxHealth;
         healthBar.UpdateBar(1.0f);

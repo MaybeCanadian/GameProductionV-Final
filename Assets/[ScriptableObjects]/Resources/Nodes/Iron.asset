@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a978616ba4e55f409d2c825243fe750, type: 3}
   m_Name: Iron
   m_EditorClassIdentifier: 
-  drops: {fileID: 0}
+  drops: {fileID: 11400000, guid: 56116791bed0f024f8aabb92c60fbb14, type: 2}
   maxHealth: 200
   respawnTime: 30
   DisableCollisionsWhenDepleted: 1

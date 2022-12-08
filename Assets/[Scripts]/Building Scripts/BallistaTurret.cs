@@ -34,6 +34,7 @@ public class BallistaTurret : BuildingScript
 
     private void Start()
     {
+        base.Start();
         OnCoolDown = true;
         Activated = false;
     }

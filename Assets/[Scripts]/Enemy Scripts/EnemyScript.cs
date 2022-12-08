@@ -226,6 +226,8 @@ public class EnemyScript : MonoBehaviour
             enemyAnimations.SetTrigger("Attack");
             IsAttacking = true;
 
+            float damage = Random.Range(stats.attackDamage.x, stats.attackDamage.y);
+
             Collider[] collisions = Physics.OverlapSphere(transform.position, stats.attackRange, stats.attackingLayers);
 
             foreach (Collider col in collisions)
@@ -234,7 +236,16 @@ public class EnemyScript : MonoBehaviour
 
                 if (playerHealth)
                 {
-                    playerHealth.TakeDamage(Random.Range(stats.attackDamage.x, stats.attackDamage.y));
+                    playerHealth.TakeDamage(damage);
+                    continue;
+                }
+
+                BuildingScript building = col.GetComponent<BuildingScript>();
+
+                if(building)
+                {
+                    building.TakeDamage(damage);
+                    continue;
                 }
             }
 

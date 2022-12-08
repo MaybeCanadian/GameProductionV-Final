@@ -24,13 +24,13 @@ MonoBehaviour:
   targetRetentionRadius: 20
   targetingLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 4224
   AITickSpeed: 0.1
   despawnTime: 10
   attackRadius: 1.5
   attackRange: 2
   attackingLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 4224
   attackDamage: {x: 5, y: 10}
   attackCooldown: 1

@@ -8,6 +8,7 @@ public class ProjectileScript : MonoBehaviour
     private BoxCollider boxCollider;
     public float LifeTime;
     public Vector2 AttackDamage;
+    public ProjectileTypes type;
 
     private void Awake()
     {
@@ -15,12 +16,13 @@ public class ProjectileScript : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
     }
 
-    public void Initialize(float DestroyDelay, Vector2 damage, float LaunchSpeed)
+    public void Initialize(float DestroyDelay, Vector2 damage, float LaunchSpeed, ProjectileTypes inType)
     {
         LifeTime = DestroyDelay;
         AttackDamage = damage;
         rb.velocity = transform.forward * LaunchSpeed;
         Invoke("DestroyAfterTime", LifeTime);
+        type = inType;
     }
 
     public void Initialize()
@@ -30,7 +32,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void DestroyAfterTime()
     {
-        Destroy(gameObject);
+        ObjectPoolScript.instance.ReturnProjectile(gameObject, type);
     }
 
     private void OnCollisionEnter(Collision collision)

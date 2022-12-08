@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAnimationScript : MonoBehaviour
 {
     public Animator animator;
-
     public void PlayAttackAnimation(WeaponTypes type)
     {
         switch (type)
@@ -27,6 +26,15 @@ public class PlayerAnimationScript : MonoBehaviour
         }
     }
 
+    public void PlayMovementAnimations(Vector2 direction)
+    {
+        animator.SetFloat("ForwardSpeed", direction.y);
+        animator.SetFloat("RightSpeed", direction.x);
+    }
+    public void PlayJumpAnimation()
+    {
+
+    }
     public void Die()
     {
         animator.SetTrigger("Death");

@@ -20,7 +20,7 @@ MonoBehaviour:
   pierceAmount: 0
   rangedDamage: 0
   rangedAttackSpeedMultiplier: 1
-  rangedProjectileSpeedMultiplier: 0
+  rangedProjectileSpeedMultiplier: 1
   meleeAttackRangeMultiplier: 1
   meleeAttackRangeArcMulitiplier: 1
   meleeDamage: 0

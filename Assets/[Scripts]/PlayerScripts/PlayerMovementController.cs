@@ -29,9 +29,8 @@ public class PlayerMovementController: MonoBehaviour
     private Camera mainCamera;
     [Tooltip("This is used for the hidden plane attached to the player for use of the mouse controls")]
     public LayerMask CameraRayCastLayer;
-
-
     private float FacingAngle;
+
     [Header("Extra Bools")]
     [Tooltip("The bool of if on ground, for view purposes")]
     public bool IsGrounded;
@@ -39,11 +38,12 @@ public class PlayerMovementController: MonoBehaviour
     private Vector3 MovementVector;
 
     [Header("Animation")]
-    public Animator BodyAnimations;
+    public PlayerAnimationScript BodyAnimations;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        BodyAnimations = GetComponent<PlayerAnimationScript>();
         mainCamera = Camera.main;
         IsGrounded = false;
         MovementVector = new Vector3(0, 0, 0);
@@ -66,14 +66,15 @@ public class PlayerMovementController: MonoBehaviour
     {
         Vector3 TempMovementVector = MovementVector;
 
-        Vector3 InvertedMovementVector = new Vector3(TempMovementVector.x, TempMovementVector.y, TempMovementVector.z);
-        Vector3 RotatedVector = BodyObject.transform.localRotation * InvertedMovementVector;
-        //BodyAnimations.SetFloat("ForwardSpeed", RotatedVector.normalized.z);
-        //BodyAnimations.SetFloat("RightSpeed", RotatedVector.normalized.x);
-
         TempMovementVector = Quaternion.Euler(0, mainCamera.gameObject.transform.eulerAngles.y, 0) * TempMovementVector;
         //I got this from the rotation video as well, this offsets the moveDirection to be up relative to the camera
         transform.position += TempMovementVector * Time.deltaTime;
+
+        Vector3 InvertedMovementVector = new Vector3(TempMovementVector.x, TempMovementVector.y, -TempMovementVector.z);
+        Vector3 RotatedVector = BodyObject.transform.localRotation * InvertedMovementVector;
+
+        //Debug.Log(RotatedVector);
+        BodyAnimations.PlayMovementAnimations(new Vector2(RotatedVector.x, RotatedVector.z));
     } //moves the character with the wasd, it moves on the x and z axis and uses simple transform
 
     public void InputMove(Vector2 movement)
@@ -105,6 +106,7 @@ public class PlayerMovementController: MonoBehaviour
             if (IsGrounded)
             {
                 rb.AddForce(JumpForce * rb.mass * Vector3.up);
+                BodyAnimations.PlayJumpAnimation();
                 IsGrounded = false;
             }
     }

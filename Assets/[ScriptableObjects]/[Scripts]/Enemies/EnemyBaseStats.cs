@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemies/Enemy")]
@@ -35,6 +36,8 @@ public class EnemyBaseStats : ScriptableObject
     [Header("Lifecycle")]
     [Tooltip("How long after this enemy dies does it despawn?"), Min(0.0f)]
     public float despawnTime = 10.0f;
+    [Tooltip("What enemy type is this for the object pooling")]
+    public EnemyTypes type;
 
     [Header("Enemy Attacking")]
     [Tooltip("from how far away they will try attacking")]

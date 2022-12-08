@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
-
     [Header("Default stats")]
     public EnemyBaseStats stats;
     public Rigidbody rb;
@@ -29,13 +28,13 @@ public class EnemyScript : MonoBehaviour
     public bool IsStunned = false;
     public bool IsAttacking = false;
 
-    private void Start()
+    public void Activate()
     {
         IsStunned = false;
         currentTarget = null;
         IsAttacking = false;
         IsDead = false;
-        if(stats.AITickSpeed <= 0) //stops crashing
+        if (stats.AITickSpeed <= 0) //stops crashing
         {
             gameObject.SetActive(false);
         }
@@ -163,7 +162,8 @@ public class EnemyScript : MonoBehaviour
 
         yield return new WaitForSeconds(stats.despawnTime);
 
-        Destroy(gameObject);
+        ObjectPoolScript.instance.ReturnEnemy(gameObject, stats.type);
+        StopAllCoroutines();
 
         yield break;
     }

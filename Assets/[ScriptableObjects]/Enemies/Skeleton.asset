@@ -27,6 +27,7 @@ MonoBehaviour:
     m_Bits: 4224
   AITickSpeed: 0.1
   despawnTime: 10
+  type: 1
   attackRadius: 1
   attackRange: 0.5
   attackingLayers:

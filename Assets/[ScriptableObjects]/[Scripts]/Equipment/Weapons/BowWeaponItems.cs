@@ -43,7 +43,6 @@ public class BowWeaponItems : WeaponItems
 
     private void SpawnArrow(Quaternion rotation, Vector3 position)
     {
-        GameObject projParent = GameObject.FindGameObjectWithTag("Parent");
         GameObject arrow = ObjectPoolScript.instance.GetProjectile(arrowType);
         arrow.transform.position = position;
         arrow.transform.rotation = rotation;

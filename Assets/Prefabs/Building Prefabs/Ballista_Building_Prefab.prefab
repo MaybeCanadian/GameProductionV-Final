@@ -371,13 +371,13 @@ MonoBehaviour:
   FireRate: 5
   FireSpeed: 50
   rotationSpeed: 1
-  projectilePrefab: {fileID: 5431229903760110933, guid: 723bc145eb1af3b478a001d762ad27e9, type: 3}
   spawnOffset: 1
   DetectionRadius: 10
   TargetingLayermask:
     serializedVersion: 2
     m_Bits: 512
   Activated: 0
+  arrowType: 1
 --- !u!1 &4674713948512574098
 GameObject:
   m_ObjectHideFlags: 0

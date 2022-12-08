@@ -28,6 +28,12 @@ public class EnemyScript : MonoBehaviour
     public bool IsStunned = false;
     public bool IsAttacking = false;
 
+
+    private void Start()
+    {
+        Activate();
+    }
+
     public void Activate()
     {
         IsStunned = false;

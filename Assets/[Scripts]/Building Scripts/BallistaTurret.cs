@@ -17,8 +17,6 @@ public class BallistaTurret : BuildingScript
 
     public float rotationSpeed = 1.0f;
 
-    public GameObject projectilePrefab;
-
     public float spawnOffset;
     public float DetectionRadius = 1.0f;
 
@@ -26,13 +24,15 @@ public class BallistaTurret : BuildingScript
 
     public bool Activated = false;
 
+    public ProjectileTypes arrowType;
+
     public override void Activate()
     {
         Activated = true;
         Invoke("ResetCoolDown", 1.0f / FireSpeed);
     }
 
-    private void Start()
+    private new void Start()
     {
         base.Start();
         OnCoolDown = true;
@@ -100,7 +100,9 @@ public class BallistaTurret : BuildingScript
         Vector3 vectorSpawnOffset = upperPortion.transform.forward * spawnOffset;
         Vector3 SpawnPosition = upperPortion.transform.position;
         SpawnPosition += vectorSpawnOffset;
-        GameObject arrow = Instantiate(projectilePrefab, SpawnPosition, upperPortion.transform.rotation);
+        GameObject arrow = ObjectPoolScript.instance.GetProjectile(arrowType);
+        arrow.transform.position = SpawnPosition;
+        arrow.transform.rotation = upperPortion.transform.rotation;
 
         BallistaArrow arrowScript = arrow.GetComponent<BallistaArrow>();
 

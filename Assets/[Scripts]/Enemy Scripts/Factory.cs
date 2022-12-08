@@ -47,6 +47,7 @@ public class Factory
     private void SetUpProjectilePrfabs()
     {
         prefabLists[(int)PrefabType.PROJECTILE].Add(Resources.Load<GameObject>("Prefabs/Projectiles/Bow_Arrow_Prefab"));
+        prefabLists[(int)PrefabType.PROJECTILE].Add(Resources.Load<GameObject>("Prefabs/Projectiles/Ballista_Arrow_Prefab"));
     }
     //--------------------------------------
     //Creation Functions
@@ -88,5 +89,6 @@ public enum EnemyTypes
 
 public enum ProjectileTypes
 {
-    ARROW
+    ARROW,
+    BALLISTA
 }

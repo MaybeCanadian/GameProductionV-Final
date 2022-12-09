@@ -50,6 +50,8 @@ public class EnemySpawnerScript : MonoBehaviour
     {
         BoxCollider spawnArea = spawnAreas[UnityEngine.Random.Range(0, spawnAreas.Count)];
 
+
+        Debug.Log(spawnArea.name);
         EnemyTypes enemyType = (EnemyTypes)UnityEngine.Random.Range(0, Enum.GetNames(typeof(EnemyTypes)).Length);
 
         GameObject enemy = ObjectPoolScript.instance.GetEnemy(enemyType);
@@ -64,10 +66,10 @@ public class EnemySpawnerScript : MonoBehaviour
             spawnPosition = GetRandomSpawnPosition(spawnArea);
         }
 
-        Debug.Log("found spawn position at "+ spawnPosition);
+        Debug.Log("found spawn position at " + spawnPosition);
+        enemy.SetActive(true);
         enemy.transform.position = spawnPosition;
         EnemyScript enemScript = enemy.GetComponent<EnemyScript>();
-        enemy.SetActive(true);
         enemScript.Activate();
     }
 
@@ -77,6 +79,7 @@ public class EnemySpawnerScript : MonoBehaviour
         float spawnZ = UnityEngine.Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
 
         Vector3 spawnPosition = new Vector3(spawnX, 1.0f, spawnZ);
+        //.spawnPosition += new Vector3(spawnArea.transform.position.x, 0.0f, spawnArea.transform.position.z);
 
         return spawnPosition;
     }

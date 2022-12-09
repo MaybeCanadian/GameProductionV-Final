@@ -3209,7 +3209,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: itemset0_146
+      name: Spike
       rect:
         serializedVersion: 2
         x: 32
@@ -3881,6 +3881,7 @@ TextureImporter:
       itemset0_66: -2138540229
       itemset0_39: -850250262
       itemset0_156: -1094923276
+      Spike: -756318435
       itemset0_122: 1306728575
       itemset0_115: 1665974768
       itemset0_82: 851945749
@@ -3911,7 +3912,6 @@ TextureImporter:
       itemset0_174: 1550191483
       itemset0_117: 1165707545
       itemset0_154: -2042816730
-      itemset0_146: -756318435
       Ballista: -1019256417
       itemset0_30: -728452571
       itemset0_74: 1279417164

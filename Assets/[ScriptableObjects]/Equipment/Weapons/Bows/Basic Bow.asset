@@ -20,7 +20,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 2560
-  soundEffect: 19
+  soundEffect: 21
   DecayTime: 10
   Speed: 50
   Pierces: 0

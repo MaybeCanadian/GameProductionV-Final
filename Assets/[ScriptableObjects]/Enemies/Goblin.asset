@@ -27,6 +27,7 @@ MonoBehaviour:
     m_Bits: 4224
   AITickSpeed: 0.1
   despawnTime: 10
+  type: 0
   attackRadius: 1.5
   attackRange: 2
   attackingLayers:
@@ -34,3 +35,7 @@ MonoBehaviour:
     m_Bits: 4224
   attackDamage: {x: 5, y: 10}
   attackCooldown: 1
+  hitSoundEffect: 0
+  attackSoundEffect: 20
+  runSoundEffect: 0
+  deathSoundEffect: 0

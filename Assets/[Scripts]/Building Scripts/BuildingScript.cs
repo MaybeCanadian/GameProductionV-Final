@@ -8,6 +8,13 @@ public class BuildingScript : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public HealthBarScript healthBar;
+    public EffectList hitEffect;
+    public EffectList destroyEffect;
+    public AudioSource buildingAudio;
+    protected void Awake()
+    {
+        buildingAudio = GetComponent<AudioSource>();
+    }
     public virtual void Activate() { }
     protected void Start()
     {
@@ -18,6 +25,7 @@ public class BuildingScript : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.UpdateBar(currentHealth / maxHealth);
+        buildingAudio.PlayOneShot(SoundManager.instance.GetFXClip(hitEffect));
 
         if(currentHealth <= 0)
         {
@@ -26,6 +34,7 @@ public class BuildingScript : MonoBehaviour
     } 
     private void DestoryBuilding()
     {
+        buildingAudio.PlayOneShot(SoundManager.instance.GetFXClip(destroyEffect));
         Destroy(gameObject);
     }
 }

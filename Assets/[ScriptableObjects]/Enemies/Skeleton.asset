@@ -35,3 +35,7 @@ MonoBehaviour:
     m_Bits: 4096
   attackDamage: {x: 5, y: 10}
   attackCooldown: 1
+  hitSoundEffect: 0
+  attackSoundEffect: 20
+  runSoundEffect: 0
+  deathSoundEffect: 0

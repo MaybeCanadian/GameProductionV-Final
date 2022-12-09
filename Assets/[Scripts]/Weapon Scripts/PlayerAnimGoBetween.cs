@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimGoBetween : MonoBehaviour
 {
     public PlayerCombatScript combatScript;
+    public PlayerAudioScript audioScript;
 
     public void OnOneHandedAttackEvent()
     {
@@ -14,6 +15,10 @@ public class PlayerAnimGoBetween : MonoBehaviour
     public void OnBowAttackEvent()
     {
         combatScript.OnAttackEvent(AttackEvents.BOW);
+    }
+    public void OnRunEvent()
+    {
+        audioScript.PlayRunSound();
     }
 }
 

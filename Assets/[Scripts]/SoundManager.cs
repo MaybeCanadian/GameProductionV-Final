@@ -72,9 +72,12 @@ public class SoundManager : MonoBehaviour
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Mining"));
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Sword Swing"));
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Punch"));
+        FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/BowShoot"));
+        FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/BallistaShoot"));
+
     }
     //------------------------------------------
-    
+
     //------------------------------------------
     //Music Functions
     public void PlayMusic(SongList track, float relativeVolume, bool loop)
@@ -176,7 +179,9 @@ public enum EffectList
     Hit_Wood,
     Mining,
     Sword_Swing,
-    Punch
+    Punch,
+    Bow_Shoot,
+    Balista_Shoot
 }
 
 [System.Serializable]

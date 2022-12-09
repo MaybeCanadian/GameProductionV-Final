@@ -25,6 +25,7 @@ public class BallistaTurret : BuildingScript
     public bool Activated = false;
 
     public ProjectileTypes arrowType;
+    public EffectList attackSoundEffect;
 
     public override void Activate()
     {
@@ -114,5 +115,7 @@ public class BallistaTurret : BuildingScript
         {
             Debug.LogError("issue with arrows");
         }
+
+        buildingAudio.PlayOneShot(SoundManager.instance.GetFXClip(attackSoundEffect));
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthController : MonoBehaviour
 {
@@ -79,6 +79,14 @@ public class PlayerHealthController : MonoBehaviour
         {
             playerAnimation.Die();
             IsDead = true;
+
+            Invoke("GoToGameOver", 3.0f);
+
         }
+    }
+
+    private void GoToGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }

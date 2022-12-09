@@ -17,6 +17,8 @@ public class WeaponItems : ScriptableObject
     public Vector2 attackDamage = new Vector2(80.0f, 120.0f);
     [Tooltip("What types of things can the weapon hit?")]
     public LayerMask enemyMask;
+    [Tooltip("The sound effect the weapon makes on attack")]
+    public EffectList soundEffect;
 
     public virtual void attack(Transform currentPosition) { }
 }

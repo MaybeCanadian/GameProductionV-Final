@@ -12,6 +12,8 @@ public class PlayerCombatScript : MonoBehaviour
     public bool IsAttacking = false;
     public PlayerAnimationScript playerAnims;
 
+    public AudioSource attackSoundsSource;
+
     private void Start()
     {
         IsAttacking = false;
@@ -37,6 +39,7 @@ public class PlayerCombatScript : MonoBehaviour
         {
             IsAttacking = false;
             currentWeapon.attack(BodyObject.transform);
+            attackSoundsSource.PlayOneShot(SoundManager.instance.GetFXClip(currentWeapon.soundEffect), 0.3f);
         }
     }
 

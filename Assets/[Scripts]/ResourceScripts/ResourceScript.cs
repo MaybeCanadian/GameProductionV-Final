@@ -15,9 +15,12 @@ public class ResourceScript : MonoBehaviour
 
     public bool IsDepleted = false;
 
+    public AudioSource resourceAudio;
+
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider>();
+        resourceAudio = GetComponent<AudioSource>();
 
         ResetResource();
     }
@@ -27,6 +30,8 @@ public class ResourceScript : MonoBehaviour
         if (IsDepleted == false)
         {
             currentHealth -= damage;
+            resourceAudio.PlayOneShot(SoundManager.instance.GetFXClip(defaultValues.soundEffect));
+
 
             if (currentHealth <= 0)
             {

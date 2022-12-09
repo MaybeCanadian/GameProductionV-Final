@@ -70,6 +70,7 @@ public class SoundManager : MonoBehaviour
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/HitWall4"));
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/HitWood"));
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Mining"));
+        FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Sword Swing"));
     }
     //------------------------------------------
     
@@ -100,7 +101,6 @@ public class SoundManager : MonoBehaviour
         shuffling = true;
         StartCoroutine(WaitForSongFinish(relativeVolume));
     }
-
     private IEnumerator WaitForSongFinish(float relativeVolume)
     {
         MusicSource.volume = relativeVolume;
@@ -173,7 +173,8 @@ public enum EffectList
     Hit_Wall_3,
     Hit_Wall_4,
     Hit_Wood,
-    Mining
+    Mining,
+    Sword_Swing
 }
 
 [System.Serializable]

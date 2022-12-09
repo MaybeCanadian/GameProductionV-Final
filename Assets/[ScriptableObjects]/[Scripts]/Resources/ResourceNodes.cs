@@ -14,4 +14,6 @@ public class ResourceNodes : ScriptableObject
     public float respawnTime;
     [Tooltip("If when the resource is depleted, will things be able to move past it")]
     public bool DisableCollisionsWhenDepleted = false;
+    [Tooltip("The Sound Effect made when hitting this node")]
+    public EffectList soundEffect;
 }

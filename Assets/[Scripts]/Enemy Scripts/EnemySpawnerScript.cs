@@ -68,9 +68,9 @@ public class EnemySpawnerScript : MonoBehaviour
 
         Debug.Log("found spawn position at " + spawnPosition);
         enemy.SetActive(true);
-        enemy.transform.position = spawnPosition;
+        Debug.Log("placed enemy as " + enemy.transform.position);
         EnemyScript enemScript = enemy.GetComponent<EnemyScript>();
-        enemScript.Activate();
+        enemScript.Activate(spawnPosition);
     }
 
     private Vector3 GetRandomSpawnPosition(BoxCollider spawnArea)
@@ -79,7 +79,7 @@ public class EnemySpawnerScript : MonoBehaviour
         float spawnZ = UnityEngine.Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
 
         Vector3 spawnPosition = new Vector3(spawnX, 1.0f, spawnZ);
-        //.spawnPosition += new Vector3(spawnArea.transform.position.x, 0.0f, spawnArea.transform.position.z);
+        //spawnPosition += new Vector3(spawnArea.transform.position.x, 0.0f, spawnArea.transform.position.z);
 
         return spawnPosition;
     }

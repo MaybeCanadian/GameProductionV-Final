@@ -40,7 +40,7 @@ public class EnemyScript : MonoBehaviour
         enemyAnimations = GetComponent<Animator>();
     }
 
-    public void Activate()
+    public void Activate(Vector3 startPosition)
     {
         IsStunned = false;
         currentTarget = null;
@@ -53,9 +53,9 @@ public class EnemyScript : MonoBehaviour
         currentHealth = stats.MaxHealth;
         enemyAnimations.fireEvents = false;
 
-        SetUpNavigation();
-
         StartCoroutine("AITick");
+
+        transform.position = startPosition;
     }
 
     private void SetUpNavigation()
@@ -71,7 +71,9 @@ public class EnemyScript : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(0.0f, stats.AITickSpeed));
 
-        while(true)
+        SetUpNavigation();
+
+        while (true)
         {
             if (IsDead)
             {

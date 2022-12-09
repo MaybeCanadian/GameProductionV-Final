@@ -45,7 +45,6 @@ public class PlayerStatsScript : MonoBehaviour
         statTypeDict.Add(StatTypes.RANGEDPROJSPEED, baseStats.rangedProjectileSpeedMultiplier);
         statTypeDict.Add(StatTypes.CURRENTHEALTH, baseStats.maxHealth);
     }
-
     public void ModifyStat(StatTypes stat, float amount, StatChangeMethod method)
     {
         if (method == StatChangeMethod.ADDITIVE)

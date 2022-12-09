@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class GameStateMachine
 {
@@ -17,7 +18,7 @@ public class GameStateMachine
         {
             instance = new GameStateMachine();
 
-            instance.currentState = GameStates.GAME;
+            instance.currentState = GameStates.MAINMENU;
         }
 
         return instance;
@@ -43,5 +44,6 @@ public enum GameStates
     RECIPE,
     BUILDING,
     PAUSE,
-    UPGRADE
+    UPGRADE,
+    MAINMENU
 }

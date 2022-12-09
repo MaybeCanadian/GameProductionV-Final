@@ -35,10 +35,10 @@ public class GameStateManager : MonoBehaviour
 
     public void OnStateChanged(GameStates newState, GameStates oldState)
     {
-        Debug.Log("ouch");
+        
         if(newState == GameStates.GAME && oldState == GameStates.MAINMENU)
         {
-            Debug.Log("oof");
+            
             SoundManager.instance.ShuffleAllSongs(1.0f);
             return;
         }

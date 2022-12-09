@@ -40,11 +40,6 @@ public class EnemyScript : MonoBehaviour
         enemyAnimations = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        Activate();
-    }
-
     public void Activate()
     {
         IsStunned = false;

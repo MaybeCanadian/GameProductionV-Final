@@ -16,6 +16,7 @@ public class PlayerLeveling : MonoBehaviour
     public float XP;
     public int Level;
     public float XPRequiredToLevel;
+    public float XPRequiredIncreaseFactor = 0.2f;
 
     [Header("UI references")]
     public Slider XPslider;
@@ -63,6 +64,7 @@ public class PlayerLeveling : MonoBehaviour
     private void LevelUp()
     {
         XP -= XPRequiredToLevel;
+        XPRequiredToLevel += XPRequiredToLevel * XPRequiredIncreaseFactor;
         Level++;
         LevelText.text = Level.ToString();
 

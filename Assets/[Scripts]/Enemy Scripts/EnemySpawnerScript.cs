@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -7,27 +8,77 @@ using UnityEngine;
 
 public class EnemySpawnerScript : MonoBehaviour
 {
-    //[Tooltip("any wave after the last one will just repeart the last one")]
-    //public List<Wave> waves;
-    //public int waveNumber = 0;
+    public List<BoxCollider> spawnAreas;
+    public LayerMask spawnOverlapCheckLayers;
+    public bool spawnEnabled = true;
 
-    //public bool spawnBool = true;
+    public int waveNumber = 0;
 
-    //public List<GameObject> enemyPrefabs;
-    //public List<SpawnLocations> spawnAreaTransforms;
-    //public Transform enemyParent;
+    private void Start()
+    {
+        StartCoroutine(SpawnLoop());
+    }
 
-    //private void Start()
-    //{
-    //    waveNumber = 0;
-    //    InitPrefabs();
-    //}
-    //private void InitPrefabs()
-    //{
-    //    enemyPrefabs = new List<GameObject>();
+    private IEnumerator SpawnLoop()
+    {
+        float timer = 0.0f;
+        float spawnTimer = 0.0f;
 
-    //    enemyPrefabs.Add(Resources.Load<GameObject>("Prefabs/Enemies/Goblin Prefab"));
-    //    enemyPrefabs.Add(Resources.Load<GameObject>("Prefabs/Enemies/Skeleton Prefab"));
-    //}
+        while(spawnEnabled)
+        {
+            timer = 0.0f;
+            spawnTimer = UnityEngine.Random.Range(5.0f, 15.0f);
+
+            while (timer <= spawnTimer)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            for(int i = 0; i < waveNumber + 1; i++)
+            {
+                SpawnEnemies();
+            }
+
+            waveNumber++;
+            yield return null;
+        }
+
+        yield return null;
+    }
+    private void SpawnEnemies()
+    {
+        BoxCollider spawnArea = spawnAreas[UnityEngine.Random.Range(0, spawnAreas.Count)];
+
+        EnemyTypes enemyType = (EnemyTypes)UnityEngine.Random.Range(0, Enum.GetNames(typeof(EnemyTypes)).Length);
+
+        GameObject enemy = ObjectPoolScript.instance.GetEnemy(enemyType);
+
+        Vector3 spawnPosition = GetRandomSpawnPosition(spawnArea);
+
+        CapsuleCollider enemyCol = enemy.GetComponent<CapsuleCollider>();
+
+        while(Physics.OverlapSphere(spawnPosition, 1.0f, spawnOverlapCheckLayers).Length > 0)
+        {
+            Debug.Log("rechecking");
+            spawnPosition = GetRandomSpawnPosition(spawnArea);
+        }
+
+        Debug.Log("found spawn position at "+ spawnPosition);
+        enemy.transform.position = spawnPosition;
+        EnemyScript enemScript = enemy.GetComponent<EnemyScript>();
+        enemy.SetActive(true);
+        enemScript.Activate();
+    }
+
+    private Vector3 GetRandomSpawnPosition(BoxCollider spawnArea)
+    {
+        float spawnX = UnityEngine.Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
+        float spawnZ = UnityEngine.Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
+
+        Vector3 spawnPosition = new Vector3(spawnX, 1.0f, spawnZ);
+
+        return spawnPosition;
+    }
   
 }

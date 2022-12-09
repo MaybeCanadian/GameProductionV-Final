@@ -84,9 +84,6 @@ public class ObjectPoolScript : MonoBehaviour
         }
 
         GameObject tempObject = pool.pool.Dequeue();
-        EnemyScript enemy = tempObject.GetComponent<EnemyScript>();
-        enemy.Activate();
-
         tempObject.SetActive(true);
         pool.activeAmount++;
         pool.remainingAmount = pool.pool.Count;

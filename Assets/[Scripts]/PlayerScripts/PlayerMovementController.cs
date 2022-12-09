@@ -40,10 +40,14 @@ public class PlayerMovementController: MonoBehaviour
     [Header("Animation")]
     public PlayerAnimationScript BodyAnimations;
 
+    [Header("Audio")]
+    public PlayerAudioScript playerAudio;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         BodyAnimations = GetComponent<PlayerAnimationScript>();
+        playerAudio = GetComponent<PlayerAudioScript>();
         mainCamera = Camera.main;
         IsGrounded = false;
         MovementVector = new Vector3(0, 0, 0);
@@ -103,12 +107,13 @@ public class PlayerMovementController: MonoBehaviour
 
     public void Jump()
     {
-            if (IsGrounded)
-            {
-                rb.AddForce(JumpForce * rb.mass * Vector3.up);
-                BodyAnimations.PlayJumpAnimation();
-                IsGrounded = false;
-            }
+        if (IsGrounded)
+        {
+            rb.AddForce(JumpForce * rb.mass * Vector3.up);
+            BodyAnimations.PlayJumpAnimation();
+            IsGrounded = false;
+            playerAudio.PlayJumpSound();
+        }
     }
 
     private void OnCollisionStay(Collision collision)

@@ -10,10 +10,13 @@ public class PlayerHealthController : MonoBehaviour
     public float ISeconds = 1.0f;
     public bool InISecconds = false;
     public bool IsDead = false;
+    public EffectList playerHitSoundEffect;
 
     public HealthBarScript healthBar;
 
     public PlayerAnimationScript playerAnimation;
+
+    public PlayerAudioScript playerAudio;
 
     private void Start()
     {
@@ -21,6 +24,7 @@ public class PlayerHealthController : MonoBehaviour
         InISecconds = false;
         currentHealth = PlayerStatsScript.instance.GetStat(StatTypes.MAXHEALTH);
         healthBar.UpdateBar(currentHealth / PlayerStatsScript.instance.GetStat(StatTypes.MAXHEALTH));
+        playerAudio = GetComponent<PlayerAudioScript>();
     }
 
     private void OnEnable()
@@ -54,6 +58,7 @@ public class PlayerHealthController : MonoBehaviour
 
             InISecconds = true;
 
+            playerAudio.PlayHitSound();
             Invoke("ResetISecconds", ISeconds);
 
             if (currentHealth <= 0)

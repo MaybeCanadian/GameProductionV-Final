@@ -51,4 +51,14 @@ public class EnemyBaseStats : ScriptableObject
     [Tooltip("How long it waits between attacks")]
     public float attackCooldown = 1.0f;
 
+    [Header("Effects")]
+    [Tooltip("The sound played when this is hit")]
+    public EffectList hitSoundEffect;
+    [Tooltip("The sound played when this attacks")]
+    public EffectList attackSoundEffect;
+    [Tooltip("The sound played when this runs")]
+    public EffectList runSoundEffect;
+    [Tooltip("The sound played when this dies")]
+    public EffectList deathSoundEffect;
+
 }

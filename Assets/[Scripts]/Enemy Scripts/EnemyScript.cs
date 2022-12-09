@@ -28,6 +28,17 @@ public class EnemyScript : MonoBehaviour
     public bool IsStunned = false;
     public bool IsAttacking = false;
 
+    [Header("Audio")]
+    public AudioSource enemyAudio;
+
+    private void Awake()
+    {
+        enemyAudio = GetComponent<AudioSource>();
+        navigation = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
+        capCollider = GetComponent<CapsuleCollider>();
+        enemyAnimations = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -45,12 +56,7 @@ public class EnemyScript : MonoBehaviour
             gameObject.SetActive(false);
         }
         currentHealth = stats.MaxHealth;
-        capCollider = GetComponent<CapsuleCollider>();
-        enemyAnimations = GetComponent<Animator>();
         enemyAnimations.fireEvents = false;
-
-        navigation = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
 
         SetUpNavigation();
 
@@ -192,6 +198,7 @@ public class EnemyScript : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.UpdateBar(currentHealth / stats.MaxHealth);
+        enemyAudio.PlayOneShot(SoundManager.instance.GetFXClip(stats.hitSoundEffect));
 
         StartCoroutine("Stun");
 
@@ -255,6 +262,7 @@ public class EnemyScript : MonoBehaviour
                 }
             }
 
+            enemyAudio.PlayOneShot(SoundManager.instance.GetFXClip(stats.attackSoundEffect));
             Invoke("ResetAttackCoolDown", stats.attackCooldown);
         }
     }

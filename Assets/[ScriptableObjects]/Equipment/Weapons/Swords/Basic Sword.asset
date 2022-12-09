@@ -20,5 +20,6 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 2560
+  soundEffect: 19
   attackRange: 2.5
   attackArc: 90

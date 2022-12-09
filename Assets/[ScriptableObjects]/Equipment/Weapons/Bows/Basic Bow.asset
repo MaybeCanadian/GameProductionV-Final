@@ -20,7 +20,10 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 2560
+  soundEffect: 19
   DecayTime: 10
   Speed: 50
   Pierces: 0
-  arrorPrefab: {fileID: 5431229903760110933, guid: 3284671027c83324b8fb50a790b30619, type: 3}
+  volleyAmount: 1
+  volleyAngle: 0
+  arrowType: 0

@@ -16,3 +16,4 @@ MonoBehaviour:
   maxHealth: 50
   respawnTime: 10
   DisableCollisionsWhenDepleted: 0
+  soundEffect: 17

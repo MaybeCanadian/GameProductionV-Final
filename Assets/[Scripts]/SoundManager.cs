@@ -71,6 +71,7 @@ public class SoundManager : MonoBehaviour
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/HitWood"));
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Mining"));
         FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Sword Swing"));
+        FXClips.Add(Resources.Load<AudioClip>("Audio/Effects/Punch"));
     }
     //------------------------------------------
     
@@ -174,7 +175,8 @@ public enum EffectList
     Hit_Wall_4,
     Hit_Wood,
     Mining,
-    Sword_Swing
+    Sword_Swing,
+    Punch
 }
 
 [System.Serializable]
